@@ -1,0 +1,15 @@
+{
+  "name": "code-shop",
+  "version": "0.1.0",
+  "private": true,
+  "description": "毕设源码售卖商城",
+  "type": "commonjs",
+  "scripts": {
+    "scan": "node scripts/scan-sources.js",
+    "scan:csv": "node scripts/scan-sources.js --csv",
+    "start": "npm --prefix server start",
+    "dev": "node scripts/dev-all.js",
+    "dev:server": "npm --prefix server start",
+    "dev:web": "npm --prefix web dev"
+  }
+}

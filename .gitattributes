@@ -1,0 +1,33 @@
+# 换行符与文本属性
+#
+# 背景：cmd.exe 解析 .bat 时要求 CRLF 换行。若仓库里存的是 LF，
+#       在 core.autocrlf=false 的机器（例如服务器）上检出后，
+#       .bat 会出现「echo 变成 cho」「if 块被拆散」等离奇报错。
+#       这里强制所有批处理用 CRLF 落盘，避免依赖各自的 autocrlf 配置。
+*.bat text eol=crlf
+
+# PowerShell 脚本统一 CRLF，避免 Windows PowerShell 5.1 解析异常
+*.ps1 text eol=crlf
+
+# .env 模板保持文本
+.env.example text
+
+# 前端构建产物是二进制-ish 的压缩文本，不做换行转换，避免哈希无谓变动
+web/dist/** -text
+
+# 压缩包与二进制资源
+*.zip binary
+*.rar binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+*.ttf binary
+*.eot binary
+*.xlsx binary
+*.docx binary
+*.pptx binary
+*.sqlite binary

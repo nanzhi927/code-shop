@@ -1,0 +1,36 @@
+# 依赖
+node_modules/
+
+# 环境变量（含数据库密码、JWT 密钥，禁止入库）
+# 含 .env / .env.prod / .env.local / .env.keep（服务器更新时的备份）等
+server/.env*
+!server/.env.example
+.env
+.env.prod
+
+# 上传的封面等运行时数据
+server/uploads/
+
+# 日志与临时文件
+*.log
+npm-debug.log*
+
+# 备份产物
+server/backups/
+server/logs/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# 大体积压缩包（不入库）
+*.zip
+# 例外：部署包需要入库，供服务器直接下载
+!deploy/*.zip
+
+# 大体积上传数据包（不进代码库）
+data/*.zip
+server/uploads.zip
+server/uploads/
